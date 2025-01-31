@@ -1,7 +1,7 @@
-# config.py
+# config/config.py
 
-# Telegram Bot API Key (Replace with your actual API token from BotFather)
-TELEGRAM_API_KEY = "YOUR_BOT_API_KEY"
+# Your Telegram Bot API Key
+TELEGRAM_API_KEY = "your-bot-api-key-here"  # Replace with your actual Telegram Bot API key
 
 # Crunchyroll Premium Account Credentials
 CRUNCHYROLL_EMAIL = "your_email@example.com"
