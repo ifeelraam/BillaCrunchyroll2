@@ -1,6 +1,6 @@
 import sys
 import os
-from config.config TELEGRAM_API_KEY
+from config import config  # Import the config module from the config directory
 import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
@@ -9,9 +9,8 @@ from downloader import download_video
 from decryption import decrypt_video
 from media.muxer import mux_video
 
-# Add the root directory to the sys.path
+# Add the root directory to the sys.path (this should be done before imports)
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-
 
 # Set up logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -61,7 +60,7 @@ def download(update: Update, context: CallbackContext):
 def main():
     try:
         # Import the bot token from config.py
-        updater = Updater(config.configTELEGRAM_API_KEY, use_context=True)  # Use token from config/config.py
+        updater = Updater(config.TELEGRAM_API_KEY, use_context=True)  # Correctly access TELEGRAM_API_KEY
         dispatcher = updater.dispatcher
 
         # Add command handlers
