@@ -25,7 +25,9 @@ def download_video_command(update, video_url):
         # Mux video and audio into the final output
         final_video = mux_video(decrypted_video)
         
+        # Send the final processed video back to the user
         update.message.reply_text(f"Download and processing complete! Here is your video: {final_video}")
     except Exception as e:
+        # Log and notify the user if there was an error
         logger.error(f"Error in download_video_command: {e}")
         update.message.reply_text("An error occurred while processing the video.")
