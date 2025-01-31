@@ -3,7 +3,7 @@ import os
 import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
-from .scraper.crunchyroll_scraper import get_video_url
+from scraper.crunchyroll_scraper import get_video_url
 from downloader import download_video
 from decryption import decrypt_video
 from media.muxer import mux_video
