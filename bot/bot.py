@@ -1,6 +1,5 @@
 import sys
 import os
-from config import config  # Import the config module from the config directory
 import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
@@ -11,6 +10,8 @@ from media.muxer import mux_video
 
 # Add the root directory to the sys.path (this should be done before imports)
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+
+from config import config  # Import the config module from the config directory
 
 # Set up logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
