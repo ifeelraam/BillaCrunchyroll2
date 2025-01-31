@@ -9,9 +9,9 @@ import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 from scraper.crunchyroll_scraper import get_video_url
-from downloader import download_video
-from decryption import decrypt_video
-from media.muxer import mux_video
+from bot.downloader import download_video
+from bot.decryption import decrypt_video
+from bot.media.muxer import mux_video
 
 
 # Set up logging
