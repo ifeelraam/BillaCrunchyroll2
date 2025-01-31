@@ -1,7 +1,7 @@
 import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
-from config import TELEGRAM_API_KEY  # Import the bot token from config.py
+from config.config import TELEGRAM_API_KEY  # Ensure the correct path is used  # Import the bot token from config.py
 from scraper.crunchyroll_scraper import get_video_url
 from downloader import download_video
 from decryption import decrypt_video
