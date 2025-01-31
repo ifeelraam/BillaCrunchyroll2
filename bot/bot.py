@@ -1,6 +1,6 @@
 import sys
 import os
-from config import config  # Now Python will know where to look for 'config'
+from config.config  # Now Python will know where to look for 'config'
 import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
