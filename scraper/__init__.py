@@ -1,1 +1,1 @@
-#empty for initialisation
+# scraper/__init__.py
