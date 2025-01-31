@@ -1,11 +1,17 @@
+import sys
+import os
+from config import config  # Now Python will know where to look for 'config'
 import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
-from config import config  # import to ensure it uses your project's config
 from scraper.crunchyroll_scraper import get_video_url
 from downloader import download_video
 from decryption import decrypt_video
 from media.muxer import mux_video
+
+# Add the root directory to the sys.path
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+
 
 # Set up logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
