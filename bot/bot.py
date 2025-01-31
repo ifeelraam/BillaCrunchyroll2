@@ -11,8 +11,7 @@ from telegram.ext import Updater, CommandHandler, CallbackContext
 from scraper.crunchyroll_scraper import get_video_url
 from bot.downloader import download_video
 from bot.decryption import decrypt_video
-from bot.media.muxer import mux_video
-
+from bot.handlers import some_handler_function  # etc.
 
 # Set up logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
