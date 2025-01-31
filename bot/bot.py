@@ -1,6 +1,6 @@
 import sys
 import os
-from config.config  # Now Python will know where to look for 'config'
+from config.config TELEGRAM_API_KEY # Now Python will know where to look for 'config'
 import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
@@ -61,7 +61,7 @@ def download(update: Update, context: CallbackContext):
 def main():
     try:
         # Import the bot token from config.py
-        updater = Updater(config.TELEGRAM_API_KEY, use_context=True)  # Use token from config/config.py
+        updater = Updater(config.configTELEGRAM_API_KEY, use_context=True)  # Use token from config/config.py
         dispatcher = updater.dispatcher
 
         # Add command handlers
