@@ -1,7 +1,7 @@
 import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
-from config.config import TELEGRAM_API_KEY  # Ensure the correct path is used  # Import the bot token from config.py
+from config.config import TELEGRAM_API_KEY  # Import the bot token from config/config.py
 from scraper.crunchyroll_scraper import get_video_url
 from downloader import download_video
 from decryption import decrypt_video
@@ -40,7 +40,7 @@ def download(update: Update, context: CallbackContext):
         # Download the video
         downloaded_video = download_video(video_info['video_url'])
         
-        # Decrypt the video
+        # Decrypt the video if necessary
         decrypted_video = decrypt_video(downloaded_video)
         
         # Mux video and audio into final format
@@ -54,16 +54,18 @@ def download(update: Update, context: CallbackContext):
 # Main function to start the bot
 def main():
     try:
-        # Import the bot token from config.py
-        updater = Updater(TELEGRAM_API_KEY, use_context=True)  # Use token from config.py
+        # Import the bot token from config/config.py
+        updater = Updater(TELEGRAM_API_KEY, use_context=True)  # Use token from config/config.py
         dispatcher = updater.dispatcher
 
+        # Add command handlers
         dispatcher.add_handler(CommandHandler("start", start))
         dispatcher.add_handler(CommandHandler("download", download))
 
         # Start the bot
         updater.start_polling()
         updater.idle()
+
     except Exception as e:
         logger.error(f"Error starting the bot: {e}")
 
