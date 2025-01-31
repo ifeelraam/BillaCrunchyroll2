@@ -1,5 +1,13 @@
 import sys
 import os
+
+# Add the root directory to sys.path (if not already done)
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+
+# Print sys.path to check if the root directory is included
+print("sys.path:", sys.path)
+
+from config import config
 import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
@@ -7,14 +15,7 @@ from scraper.crunchyroll_scraper import get_video_url
 from downloader import download_video
 from decryption import decrypt_video
 from media.muxer import mux_video
-# Add the root directory to the sys.path (this should be done before imports)
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-
-print(sys.path)
-
-
-from config import config
 
 # Set up logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
