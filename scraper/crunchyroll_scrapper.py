@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import logging
-from config import CRUNCHYROLL_EMAIL, CRUNCHYROLL_PASSWORD
+from config.config import CRUNCHYROLL_EMAIL, CRUNCHYROLL_PASSWORD
 
 # Set up logging
 logger = logging.getLogger(__name__)
