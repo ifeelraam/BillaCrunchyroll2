@@ -10,6 +10,10 @@ from media.muxer import mux_video
 # Add the root directory to the sys.path (this should be done before imports)
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
+
+print(sys.path)
+
+
 from config import config
 
 
