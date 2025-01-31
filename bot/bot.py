@@ -1,7 +1,7 @@
 import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
-from config.config import TELEGRAM_API_KEY  # Import the bot token from config/config.py
+from config import config  # Use relative import for config
 from scraper.crunchyroll_scraper import get_video_url
 from downloader import download_video
 from decryption import decrypt_video
@@ -54,8 +54,8 @@ def download(update: Update, context: CallbackContext):
 # Main function to start the bot
 def main():
     try:
-        # Import the bot token from config/config.py
-        updater = Updater(TELEGRAM_API_KEY, use_context=True)  # Use token from config/config.py
+        # Import the bot token from config.py
+        updater = Updater(config.TELEGRAM_API_KEY, use_context=True)  # Use token from config/config.py
         dispatcher = updater.dispatcher
 
         # Add command handlers
