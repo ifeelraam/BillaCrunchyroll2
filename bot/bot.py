@@ -1,9 +1,6 @@
 import sys
 import os
-
-# Add the root directory to sys.path (if not already done)
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # Print sys.path to check if the root directory is included
 print("sys.path:", sys.path)
 
