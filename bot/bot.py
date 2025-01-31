@@ -5,7 +5,6 @@ from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 # Add the root directory to the sys.path (this should be done before imports)
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-
 from config import config
 from scraper.crunchyroll_scraper import get_video_url
 from downloader import download_video
