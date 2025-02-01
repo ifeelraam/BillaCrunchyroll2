@@ -18,14 +18,21 @@ def download_video_command(update, video_url):
 
         # Download the video
         downloaded_video = download_video(video_info['video_url'])
-        
+
         # Decrypt the downloaded video
         decrypted_video = decrypt_video(downloaded_video)
-        
+
         # Mux video and audio into the final output
         final_video = mux_video(decrypted_video)
-        
+
         # Send the final processed video back to the user
+        # Assuming `final_video` is the path to the final video file
+        update.message.reply_document(document=open(final_video, 'rb'))  # send the video as a document
+
+        # Alternatively, if you want to send the video directly (without packaging as a document), use:
+        # update.message.reply_video(video=open(final_video, 'rb'))
+
+        # Optionally, notify the user the processing is complete
         update.message.reply_text(f"Download and processing complete! Here is your video: {final_video}")
     except Exception as e:
         # Log and notify the user if there was an error
